@@ -3,7 +3,7 @@
 */
 public class Policy
 {
-   private int polNumber;
+   private String polNumber;
    private String provName;
    private String holderFirstName;
    private String holderLastName;
@@ -19,7 +19,7 @@ public class Policy
    
    public Policy()
    {
-      polNumber = 0;
+      polNumber = "Default";
       provName = "Default";
       holderFirstName = "Default";
       holderLastName = "Default";
@@ -42,7 +42,7 @@ public class Policy
       @param weight The policyholder's weight
    */
    
-   public Policy(int num, String name, String firstname, String lastname, int age, String smoke, double height, double weight)
+   public Policy(String num, String name, String firstname, String lastname, int age, String smoke, double height, double weight)
    {
       polNumber = num;
       provName = name;
@@ -60,7 +60,7 @@ public class Policy
       @param num The policy number
    */ 
    
-   public void setNumber(int num)
+   public void setNumber(String num)
    {
       polNumber = num;
    }
@@ -148,7 +148,7 @@ public class Policy
       @return the value in the polNumber field
    */ 
    
-   public int getNumber()
+   public String getNumber()
    {
      return polNumber;
    }
@@ -247,61 +247,29 @@ public class Policy
       @return the calculated 
    */
    
-   public double getPrice()
-   {
-   
-   double policyPrice = 0;
-   
-      if (holderAge <= 50) 
+    public double getPrice()
       {
-         if (holderSmoke.equals("non-smoker"))
-         {
-            if ((holderWeight * 703)/(holderHeight * holderHeight) <= 35)
-            {
-               policyPrice = 600;
-            }
-            else if ((holderWeight * 703)/(holderHeight * holderHeight) > 35)
-            {
-               policyPrice = 600 + (((holderWeight * 703)/(holderHeight * holderHeight) - 35) * 20);
-            }
-         }
-         else if (holderSmoke.equals("smoker"))
-         {
-            if ((holderWeight * 703)/(holderHeight * holderHeight) <= 35)
-            {
-               policyPrice = 600 + 100;
-            }
-            else if ((holderWeight * 703)/(holderHeight * holderHeight) > 35)
-            {
-               policyPrice = 600 + 100 + (((holderWeight * 703)/(holderHeight * holderHeight) - 35) * 20);
-            }
-         }
-      }
-      else if (holderAge > 50)
-      {
-         if (holderSmoke.equals("non-smoker"))
-         {
-            if ((holderWeight * 703)/(holderHeight * holderHeight) <= 35)
-            {
-               policyPrice = 600 + 75;
-            }
-            else if ((holderWeight * 703)/(holderHeight * holderHeight) > 35)
-            {
-               policyPrice = 600 + 75 + (((holderWeight * 703)/(holderHeight * holderHeight) - 35) * 20);
-            }
-         }
-         else if (holderSmoke.equals("smoker"))
-         {
-            if ((holderWeight * 703)/(holderHeight * holderHeight) <= 35)
-            {
-               policyPrice = 600 + 75 + 100;
-            }
-            else if ((holderWeight * 703)/(holderHeight * holderHeight) > 35)
-            {
-               policyPrice = 600 + 75 + 100 + (((holderWeight * 703)/(holderHeight * holderHeight) - 35) * 20);
-            }
-         }
-      }
-   return policyPrice;
-   }
-}
+       final double BASE_PRICE = 600;
+       final double ADDITIONAL_FEE_AGE = 75;
+       final double ADDITIONAL_FEE_SMOKING = 100;
+       final double ADDITIONAL_FEE_PER_BMI = 20;
+       
+       final int AGE_THRESHOLD = 50;
+       final int BMI_THRESHOLD = 35;
+       
+       double price = BASE_PRICE;
+       
+       if(holderAge > AGE_THRESHOLD) //over 50 years
+          price += ADDITIONAL_FEE_AGE; //75
+          
+       if(holderSmoke.equalsIgnoreCase("smoker")) 
+          price += ADDITIONAL_FEE_SMOKING; //100
+             
+       //call the getBMI method
+       if(getBMI() > BMI_THRESHOLD) //BMI over 35
+          price += ((getBMI() - BMI_THRESHOLD) * ADDITIONAL_FEE_PER_BMI); //additional BMI fee - 20
+          
+       return price;
+   }  
+   
+}  

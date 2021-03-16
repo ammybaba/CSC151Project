@@ -5,42 +5,49 @@ public class PolicyDemo
    public static void main(String[] args)
    {
       //Used to store user input to pass to the Policy object
-      int testNumber;
-      String testProvName;
-      String testFirstName;
-      String testLastName;
-      int testAge;
-      String testSmoke;
-      double testHeight;
-      double testWeight;
+      String number;
+      String name;
+      String firstName;
+      String lastName;
+      int age;
+      String smoke;
+      double height;
+      double weight;
       
       //Create a Scanner object
       Scanner keyboard = new Scanner(System.in);
       
       //Ask the user for the Policy information
-      System.out.println("Please enter the Policy Number:");
-      testNumber=keyboard.nextInt(); 
-      System.out.println("Please enter the Provider Name:");
-      testProvName=keyboard.nextLine();
-      System.out.println("Please enter the Policyholder’s First Name:");
-      testFirstName=keyboard.nextLine();
-      System.out.println("Please enter the Policyholder’s Last Name:");
-      testLastName=keyboard.nextLine();
-      System.out.println("Please enter the Policyholder's Age:");
-      testAge=keyboard.nextInt();
-      System.out.println("Please enter the Policyholder's Smoking Status (smoker/non-smoker):");
-      testSmoke=keyboard.nextLine();
-      System.out.println("Please enter the Policyholder's Height (in inches)");
-      testHeight=keyboard.nextDouble();
-      System.out.println("Please enter the Policyholder's Weight (in pounds)");
-      testWeight=keyboard.nextDouble();
+      System.out.print("Please enter the Policy Number: ");
+      number = keyboard.nextLine();
+            
+      System.out.print("Please enter the Provider Name: ");
+      name = keyboard.nextLine();
       
+      System.out.print("Please enter the Policyholder's First Name: ");
+      firstName = keyboard.nextLine();
+      
+      System.out.print("Please enter the Policyholder's Last Name: ");
+      lastName = keyboard.nextLine();
+      
+      System.out.print("Please enter the Policyholder's Age: ");
+      age = keyboard.nextInt();
+      keyboard.nextLine();
+      
+      System.out.print("Please enter the Policyholder's Smoking Status (smoker/non-smoker): ");
+      smoke = keyboard.nextLine();
+      
+      System.out.print("Please enter the Policyholder's Height (in inches): ");
+      height = keyboard.nextDouble();
+      
+      System.out.print("Please enter the Policyholder's Weight (in pounds): ");
+      weight = keyboard.nextDouble();      
       /**
          Create an instance of the Policy class,
          passnig the data that was entered as arguments
          to the constructor
       */
-      Policy quote = new Policy(testNumber, testProvName, testFirstName, testLastName, testAge, testSmoke, testHeight, testWeight);
+      Policy quote = new Policy(number, name, firstName, lastName, age, smoke, height, weight);
       
       //Get the data and display it
       System.out.println();
