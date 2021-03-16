@@ -15,6 +15,8 @@ public class PolicyDemo
       double weight;
 
       //read input from file
+      
+      //Added code to display all policy information the number of smokers, and the number of non-smokers
 
       //Create a Scanner object
       Scanner keyboard = new Scanner(System.in);
