@@ -5,15 +5,17 @@ public class PolicyDemo
    public static void main(String[] args)
    {
       //Used to store user input to pass to the Policy object
-      String[] number;
-      String[] name;
-      String[] firstName;
-      String[] lastName;
-      int[] age;
-      String[] smoke;
-      double[] height;
-      double[] weight;
-      
+      String number;
+      String name;
+      String firstName;
+      String lastName;
+      int age;
+      String smoke;
+      double height;
+      double weight;
+
+      //read input from file
+
       //Create a Scanner object
       Scanner keyboard = new Scanner(System.in);
       
