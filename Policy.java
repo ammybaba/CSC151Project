@@ -60,7 +60,7 @@ public class Policy
       @param num The policy number
    */ 
    
-   public void setNumber(String num)
+   public void setProviderNumber(String num)
    {
       polNumber = num;
    }
@@ -71,7 +71,7 @@ public class Policy
       @param name The policy provider's name
    */ 
    
-   public void setName(String name)
+   public void setProviderName(String name)
    {
       provName = name;
    }
@@ -148,7 +148,7 @@ public class Policy
       @return the value in the polNumber field
    */ 
    
-   public String getNumber()
+   public String getProviderNumber()
    {
      return polNumber;
    }
@@ -159,7 +159,7 @@ public class Policy
       @return the value in the provName field
    */ 
    
-   public String getName()
+   public String getProviderName()
    {
      return provName;
    }
