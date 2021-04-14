@@ -222,4 +222,15 @@ public class PolicyHolder
    }
    
    //added toString method
+   
+   public String toString()
+   {
+      String str = "First Name: " + holderFirstName +
+                   "\nLast Name: " + holderLastName +
+                   "\nAge: " + holderAge +
+                   "\nSmoking Status: " + holderSmoke+
+                   "\nHeight: " + holderHeight +
+                   "\nWeight: " + holderWeight;
+      return str;
+   } 
 } 

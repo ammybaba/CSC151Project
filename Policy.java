@@ -5,6 +5,7 @@ public class Policy
 {
    private String polNumber;
    private String provName;
+   private PolicyHolder policyHolder; //Information of the policyholder
 
    private static int instanceCount = 0;
    
@@ -19,6 +20,7 @@ public class Policy
    {
       polNumber = "Default";
       provName = "Default";
+      policyHolder = new PolicyHolder();
       instanceCount++;
    }
    
@@ -31,10 +33,11 @@ public class Policy
       @param name The policy provider's name
    */
    
-   public Policy(String num, String name)
+   public Policy(String num, String name, PolicyHolder policyHolderObject)
    {
       polNumber = num;
       provName = name;
+      policyHolder = new PolicyHolder(policyHolderObject);
       instanceCount++;
    }
    
@@ -94,6 +97,13 @@ public class Policy
       return instanceCount;
    }
    
-   //Added toString method  
+   //Added toString method 
+   
+   public String toString()
+   {
+      String str = "Policy number: " + polNumber +
+                   "\nProvider name: " + provName;
+      return str;
+   } 
    
 }  
