@@ -73,6 +73,8 @@ public class Policy
    public String getProviderName()
    {
      return provName;
-   }  
+   }
+   
+   //Added toString method  
    
 }  
