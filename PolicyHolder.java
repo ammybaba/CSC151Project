@@ -220,4 +220,6 @@ public class PolicyHolder
           
        return price;
    }
+   
+   //added toString method
 } 
