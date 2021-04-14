@@ -6,21 +6,27 @@ public class Policy
    private String polNumber;
    private String provName;
 
+   private static int instanceCount = 0;
    
    /**
       This no-arg contructor sets Policy information at 0.0
-      and strings to "Default"
+      and strings to "Default", as well as increments the static
+      field instanceCount to keep track of the number of instances of this
+      class that are created
    */
    
    public Policy()
    {
       polNumber = "Default";
       provName = "Default";
+      instanceCount++;
    }
    
    /** 
       This constructor sets all Policy information
-      to the value passed as an argument
+      to the value passed as an argument, as well as increments the static
+      field instanceCount to keep track of the number of instances of this
+      class that are created
       @param num The policy number
       @param name The policy provider's name
    */
@@ -29,6 +35,7 @@ public class Policy
    {
       polNumber = num;
       provName = name;
+      instanceCount++;
    }
    
    /** 
@@ -73,6 +80,18 @@ public class Policy
    public String getProviderName()
    {
      return provName;
+   }
+   
+   /** 
+      The getInstanceCount method returns
+      the number of instances of this class
+      that have been created
+      @return The value in the instanceCount field
+   */
+   
+   public int getInstanceCount()
+   {
+      return instanceCount;
    }
    
    //Added toString method  
